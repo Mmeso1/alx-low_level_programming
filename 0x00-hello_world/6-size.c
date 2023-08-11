@@ -2,8 +2,8 @@
 
 /**
  * main - This is the main function
- * Description : Prints size of the various types on the computer
- * Return : It returns 0
+ * Description: Prints size of the various types on the computer
+ * Return: It returns 0
  */
 int main(void)
 {
