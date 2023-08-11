@@ -11,9 +11,9 @@ int main(void)
 
 	for (i = 0; i < 10; i++)
 	{
-		print("%i", i);
+		printf("%i", i);
 	}
-	print('\n');
+	printf('\n');
 
 	return (0);
 }
