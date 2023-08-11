@@ -1,4 +1,5 @@
-#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
 
 /**
  * main - This is the entry point
@@ -7,6 +8,8 @@
  */
 int main(void)
 {
-	fprintf(stderr,"and that piece of art is useful\" - Dora Korpar, 2015-10-19\n");
+	char *message = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
+	write(STDERR_FILENO, message, strlen(message));
+
 	return (1);
 }
