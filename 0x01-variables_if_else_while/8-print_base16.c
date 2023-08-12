@@ -11,7 +11,7 @@ int main(void)
 
 	for (n = 0; n < 10; n++)
 	{
-		putchar(n + 'O');
+		putchar(n + '0');
 	}
 
 	for (n = 'a'; n <= 'f'; n++)
