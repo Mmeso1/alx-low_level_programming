@@ -23,11 +23,11 @@ int main(void)
 			if (num1 != 98 || num2 != 99)
 			{
 				putchar(',');
-				putchat(' ');
+				putchar(' ');
 			}
 		}
 	}
 
-	putchar('\n);
+	putchar('\n');
 	return (0);
 }
