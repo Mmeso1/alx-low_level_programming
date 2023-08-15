@@ -9,18 +9,11 @@
  * and returns the value of that last digit.
  *
  * Return: The value of the last digit of @n
- */
-int print_last_digit(int n)
+int print_last_digit(int num)
 {
-	int last_digit;
+	int last_digit = abs(num % 10);
 
-	if (n < 0)
-	{
-		n = -(long)n;
-	}
-
-	last_digit = n % 10;
-	_putchar(last_digit + '0');
+	_putchar('0' + last_digit);
 
 	return (last_digit);
 }
