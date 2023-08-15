@@ -2,8 +2,8 @@
 #include "main.h"
 
 /**
- * print_last_digit - Print the last digit
- * @n: the number to get the last digit from
+ * print_last_digit - Print the last digit of a number
+ * @n: the number whose last digit will be printed
  * Description: This function takes an integer and
  * returns/prints the last digit
  * Return: integer
@@ -11,16 +11,16 @@
 
 int print_last_digit(int n)
 {
-	int last;
+	int last_digit;
 
 	last = n % 10;
 
-	if (last < 0)
+	if (last_digit < 0)
 	{
-		last = last * -1;
+		last_digit = -(last_digit);
 	}
 
-	_putchar(last + '0');
+	_putchar(last_digit + '0');
 
-	return (last);
+	return (last_digit);
 }
