@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <string.h>
+#include "main.h"
 
 /**
  * main - This is the main function
@@ -13,7 +13,7 @@ int main(void)
 
 	for (i = 0; i < strlen(string); i++)
 	{
-		putchar(string[i]);
+		_putchar(string[i]);
 	}
 	return (0);
 }
