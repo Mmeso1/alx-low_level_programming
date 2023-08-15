@@ -2,13 +2,13 @@
 #include "main.h"
 
 /**
- * print_last_digit - Prints the last digit of a number
- * @n: The number whose last digit will be printed
- *
- * Description: This function prints the last digit of the given number @n
- * and returns the value of that last digit.
- *
- * Return: The value of the last digit of @n
+ * print_last_digit - Print the last digit
+ * @num: the number to get the last digit from
+ * Description: This function takes an integer and
+ * returns/prints the last digit
+ * Return: integer
+ */
+
 int print_last_digit(int n)
 {
 	int last;
