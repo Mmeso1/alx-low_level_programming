@@ -25,6 +25,7 @@ product = i * j;
 
 if (product < 10)
 _putchar(' ');
+_putchar(' ');
 else if (product < 100)
 _putchar(product / 10 + '0');
 else
@@ -32,7 +33,7 @@ else
 _putchar(product / 100 + '0');
 _putchar((product / 10) % 10 + '0');
 }
-
+_putchar(' ');
 _putchar(product % 10 + '0');
 }
 
