@@ -15,18 +15,23 @@ void times_table(void)
 		{
 			product = i * j;
 
-			if (j != 0)
-                        {
-                                _putchar(',');
-                                _putchar(' ');
-                        }
-
-			if (product < 10)
-				_putchar(' ');
+			if (j == 0)
+			{
+				product = i * j;
+			}
 			else
-				_putchar(product / 10 + '0');
-			_putchar(product % 10 + '0');
+			{
+				_putchar(',');
+				_putchar(' ');
+
+				if (product < 10)
+					_putchar(' ');
+				else
+					_putchar(product / 10 + '0');
+				_putchar(product % 10 + '0');
+			}
 		}
+
 		_putchar('\n');
 	}
 }
