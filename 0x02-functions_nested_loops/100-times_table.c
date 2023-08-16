@@ -1,11 +1,9 @@
 #include "main.h"
 
 /**
-* print_times_table - print times table
-* @n: The number
-* Description: Print times table between 1 and 15
-* Return: void
-*/
+ * print_times_table - prints the n times table, starting with 0
+ * @n: the table limit (0 <= n <= 15)
+ */
 void print_times_table(int n)
 {
 	if (n >= 0 && n <= 15)
@@ -17,9 +15,6 @@ void print_times_table(int n)
 			for (j = 0; j <= n; j++)
 			{
 				p = i * j;
-
-				if (j == 0)
-					_putchar(p + '0');
 
 				if (j != 0)
 				{
@@ -35,7 +30,6 @@ void print_times_table(int n)
 				_putchar('0' + p % 10);
 			}
 			_putchar('\n');
-
 		}
 	}
 }
