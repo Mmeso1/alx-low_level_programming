@@ -2,36 +2,35 @@
 #include <stdlib.h>
 #include "main.h"
 /**
- * print_fibonacci - Prints the first n Fibonacci numbers
- * @n: The number of Fibonacci numbers to print
- */
-void print_fibonacci(int n)
-{
-	unsigned long int a = 1, b = 2, c;
-	int count = 2;
-
-	printf("%lu, %lu", a, b);
-
-	while (count < n)
-	{
-		c = a + b;
-		
-		printf(", %lu", c);
-
-		a = b;
-		b = c;
-		count++;
-	}
-
-	printf("\n");
-}
-
-/**
- * main - entry pint
- * Return: void
+ * main - finds and prints the first 98 Fibonacci numbers,
+ * starting with 1 and 2
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	print_fibonacci(98);
+	unsigned int i;
+	unsigned int j1, j2, k1, k2, temp;
+	j1 = 0;
+	j2 = 1;
+	k1 = 0;
+	k2 = 2;
+
+	printf("u%", k2);
+	for (i = 1; i < 98; i++)
+	{
+		 temp = k1;
+		 k1 = k2;
+		 k2 = k2 + temp;
+
+		 while (k2 >= 1000000000)
+		 {
+			 k2 -= 1000000000;
+			 k1++;
+		 }
+
+		 printf(", %u%09u", k1, k2);
+	}
+	printf("\n");
+
 	return (0);
 }
