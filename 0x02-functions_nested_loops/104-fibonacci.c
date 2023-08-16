@@ -9,13 +9,11 @@
 int main(void)
 {
 	unsigned int i;
-	unsigned int j1, j2, k1, k2, temp;
-	j1 = 0;
-	j2 = 1;
+	unsigned int k1, k2, temp;
 	k1 = 0;
 	k2 = 2;
 
-	printf("u%", k2);
+	printf("%u", k2);
 	for (i = 1; i < 98; i++)
 	{
 		 temp = k1;
@@ -28,7 +26,7 @@ int main(void)
 			 k1++;
 		 }
 
-		 printf(", %u%09u", k1, k2);
+		 printf(", %09u%09u", k1, k2);
 	}
 	printf("\n");
 
