@@ -7,41 +7,23 @@
  */
 void print_fibonacci(int n)
 {
-	unsigned long a = 1, b = 2, c;
+	unsigned long int a = 1, b = 2, c;
 	int count = 2;
 
-	_putchar('0' + a);
-	_putchar(',');
-	_putchar('0' + b);
+	printf("%lu, %lu", a, b);
 
 	while (count < n)
 	{
 		c = a + b;
 		
-		_putchar(',');
-		_putchar(' ');
-
-		unsigned long temp = c;
-		unsigned long divisor = 1;
-
-		while (temp >= 10)
-		{
-			divisor *= 10;
-			temp /= 10;
-		}
-
-		while (divisor > 0)
-		{
-			_putchar('0' + c / divisor);
-			c %= divisor;
-			divisor /= 10;
-		}
+		printf(", %lu", c);
 
 		a = b;
-		b =c;
+		b = c;
 		count++;
 	}
-	_putchar('\n');
+
+	printf("\n");
 }
 
 /**
