@@ -17,7 +17,7 @@ int main(void)
 	for (count = 3; count <= 50; count++)
 	{
 		next = fib1 + fib2;
-		printf(", %d", next);
+		printf(", %lu", next);
 
 		fib1 = fib2;
 		fib2 = next;
