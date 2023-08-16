@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "main.h"
 /**
  * print_fibonacci - Prints the first n Fibonacci numbers
  * @n: The number of Fibonacci numbers to print
