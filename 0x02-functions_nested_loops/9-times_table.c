@@ -3,6 +3,7 @@
 /**
  * times_table -  print the 9 times table
  * Description: This function prints the times table from 0 to 9
+ * 'i' is the digit, j is the multiplier
  * Return: void
  */
 void times_table(void)
@@ -17,7 +18,7 @@ void times_table(void)
 
 			if (j == 0)
 			{
-				product = i * j;
+				_putchar(product + '0');
 			}
 			else
 			{
