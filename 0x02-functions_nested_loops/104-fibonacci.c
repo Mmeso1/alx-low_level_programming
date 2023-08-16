@@ -28,3 +28,12 @@ void print_fibonacci(int n)
 	printf("\n");
 }
 
+/**
+ * main - entry pint
+ * Return: void
+ */
+int main(void)
+{
+	print_fibonacci(98);
+	return (0);
+}
