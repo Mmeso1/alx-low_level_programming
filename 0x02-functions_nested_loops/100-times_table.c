@@ -5,39 +5,32 @@
 * @n: The number
 * Description: Print times table between 1 and 15
 * Return: void
-*/
-void print_times_table(int n)
+*/void print_times_table(int n)
 {
-if (n >= 0 && n <= 15)
-{
-int i, j, product;
+	if (n >= 0 && n <= 15)
+	{
+		int i, j, p;
 
-for (i = 0; i <= n; i++)
-{
-_putchar('0');	/* Print the first column */
+		for (i = 0; i <= n; i++)
+		{
+			for (j = 0; j <= n; j++)
+			{
+				p = i * j;
 
-for (j = 1; j <= n; j++)
-{
-_putchar(',');
-_putchar(' ');
+				if (j != 0)
+				{
+					_putchar(',');
+					_putchar(' ');
 
-product = i * j;
+					if (p < 10) _putchar(' '), _putchar(' ');
+					else if (p < 100) _putchar(' ');
 
-if (product < 10)
-_putchar(' ');
-_putchar(' ');
-else if (product < 100)
-_putchar(product / 10 + '0');
-else
-{
-_putchar(product / 100 + '0');
-_putchar((product / 10) % 10 + '0');
-}
-_putchar(' ');
-_putchar(product % 10 + '0');
-}
-
-_putchar('\n');
-}
-}
+					_putchar('0' + p / 100);
+					_putchar('0' + (p / 10) % 10);
+				}
+				_putchar('0' + p % 10);
+			}
+			_putchar('\n');
+		}
+	}
 }
