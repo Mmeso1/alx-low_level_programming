@@ -7,15 +7,15 @@
  */
 void print_fibonacci(int n)
 {
-	int a = 1, b = 2, c;
+	unsigned long a = 1, b = 2, c;
 	int count = 2;
 
-	printf("%d, %d, ", a, b);
+	printf("%lu, %lu, ", a, b);
 
 	while (count < n)
 	{
 		c = a + b;
-		printf("%d", c);
+		printf("%lu", c);
 
 		if (count < n - 1)
 		{
