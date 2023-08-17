@@ -10,6 +10,8 @@
 
 int _isdigit(int c)
 {
-	return (isdigit(c));
+	if (isdigit(c) != 1)
+		return (0);
+	return (0);
 	printf("\n");
 }
