@@ -1,5 +1,4 @@
 #include "main.h"
-#include "../0x02-functions_nested_loops/main.h"
 
 /**
  * print_numbers - print numbers
