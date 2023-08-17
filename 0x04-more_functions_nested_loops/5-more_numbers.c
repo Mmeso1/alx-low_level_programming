@@ -8,6 +8,7 @@
 void more_numbers(void)
 {
 	int i, count;
+
 	count = 10;
 
 	while (count)
