@@ -10,9 +10,9 @@ int main(void)
 unsigned long fib1 = 1, fib2 = 2, next;
 unsigned long sum = 0;
 
-while (fb1 <= 4000000)
+while (fib1 <= 4000000)
 {
-if (fb1 % 2 == 0)
+if (fib1 % 2 == 0)
 
 sum += fib1;
 
