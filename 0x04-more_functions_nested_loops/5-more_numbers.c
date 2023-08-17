@@ -18,11 +18,11 @@ void more_numbers(void)
 			if (i >= 10)
 			{
 				j = i / 10;
-				_putchar(i + '0');
+				_putchar(j + '0');
 			}
 
 			j = i % 10;
-			_putchar(i + '0');
+			_putchar(j + '0');
 		}
 		_putchar('\n');
 		count--;
