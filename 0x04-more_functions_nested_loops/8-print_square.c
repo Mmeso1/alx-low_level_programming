@@ -8,17 +8,17 @@
 
 void print_square(int size)
 {
-	int i, j = 0;
+	int i, j;
 
-	if (n <= 0)
+	if (size <= 0)
 	{
 		_putchar('\n');
 	}
 	else
 	{
-		for (; i < n; i++)
+		for (i = 0; i < size; i++)
 		{
-			for (; j < n; j++)
+			for (i = 0; j < size; j++)
 			{
 				_putchar(35);
 			}
