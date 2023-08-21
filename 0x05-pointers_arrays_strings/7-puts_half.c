@@ -14,7 +14,7 @@ void puts_half(char *str)
 	if (strlen(str) % 2 == 0)
 		midpoint = strlen(str) / 2;
 	else
-		midpoint = (strlen(str) - 1) / 2;
+		midpoint = (strlen(str) /2) + 1;
 
 	for (i = midpoint; i < strlen(str); i++)
 	{
