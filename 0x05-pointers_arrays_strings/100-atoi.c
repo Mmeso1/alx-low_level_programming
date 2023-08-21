@@ -11,19 +11,26 @@ int _atoi(char *s)
 	int sign = 1;
 	int i;
 
-	if (*s == '-')
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		sign = -1;
-		s++;
-	}
-	else if (*s == '+')
-	{
-		s++;
+		if (s[i] >= '0' && s[i] <= '9')
+		{
+			break;
+		}
+		else if (s[i] == '-')
+		{
+			sign = -sign;
+		}
+		else if (s[i] == '+')
+		{
+
+		}
 	}
 
-	for (i = 0; s[i] >= '0' && s[i] <= '9'; i++)
-	{
-		result = result * 10 + (s[i] - '0');
-	}
-	return result * sign;
+		for (; s[i] >= '0' && s[i] <= '9'; i++)
+		{
+			result = result * 10 + (s[i] - '0');
+		}
+
+		return (result * sign);
 }
