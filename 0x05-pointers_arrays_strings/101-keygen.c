@@ -12,8 +12,8 @@ int main(void)
 	int sum = 2772;
 	int current_sum = 0;
 	char password[64] = {'\0'};
-	srand(time(NULL));
 	int random_char, char_value;
+	srand(time(NULL));
 
 	while (current_sum < sum)
 	{
