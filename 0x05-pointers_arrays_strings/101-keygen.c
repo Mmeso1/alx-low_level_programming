@@ -13,15 +13,16 @@ int main(void)
 	int sum = 2772;
 	int current_sum = 0;
 	char password[64] = {'\0'};
+	int random_char, char_value;
 
 	while (current_sum < sum)
 	{
-		int random_char = rand() % 81 + 44;
-		int char_value = random_char - 44;
+		random_char = rand() % 81 + 44;
+		char_value = random_char - 44;
 
 		if (current_sum + char_value < sum)
 		{
-			password[current_sum / 4] = random_chr;
+			password[current_sum / 4] = random_char;
 			current_sum += char_value;
 		}
 	}
