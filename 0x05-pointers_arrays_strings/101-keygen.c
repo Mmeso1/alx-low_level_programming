@@ -10,9 +10,9 @@
 int main(void)
 {
 	int sum = 2772;
-	srand(time(NULL));
 	int current_sum = 0;
 	char password[64] = {'\0'};
+	srand(time(NULL));
 	int random_char, char_value;
 
 	while (current_sum < sum)
