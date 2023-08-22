@@ -9,8 +9,8 @@
 
 int main(void)
 {
-	srand(time(NULL));
 	int sum = 2772;
+	srand(time(NULL));
 	int current_sum = 0;
 	char password[64] = {'\0'};
 	int random_char, char_value;
