@@ -8,7 +8,7 @@
 
 int _atoi(char *s)
 {
-	int result = 0;
+	unsigned int result = 0;
 	int sign = 1;
 	int r1 = result > INT_MAX / 10;
 
@@ -19,10 +19,11 @@ int _atoi(char *s)
 		else if (*s >= '0' && *s <= '9')
 		{
 			int digit = *s - '0';
+
 			if (sign == 1 && (r1 || (r1 && digit > 7)))
-				return INT_MAX;
+				return (INT_MAX);
 			if (sign == 1 && (r1 || (r1 && digit > 8)))
-				return INT_MIN;
+				return (INT_MIN);
 
 			result = result * 10 + digit;
 		}
@@ -30,5 +31,5 @@ int _atoi(char *s)
 			break;
 		s++;
 	}
-	return result * sign;
+	return (result * sign);
 }
