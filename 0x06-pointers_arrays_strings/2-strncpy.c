@@ -2,10 +2,11 @@
 #include <string.h>
 
 /**
- * _strncpy : copy a string from a src to a dest
+ * _strncpy - copy a string from a src to a dest
  * @dest: The destination value
  * @src: The source value
  * @n: The copy limit
+ *
  * Return: char value
  */
 
