@@ -8,21 +8,22 @@
 
 char *cap_string(char *s)
 {
-	int i = 0;
-	char separator[] = {32, '\t', '\n', 44, ';', 46,
-		'!', '?', '"', '(', ')', '{', '}'};
+	int a = 0, i;
+	int cspc = 13;
+	char spc[] = {32, '\t', '\n', 44, ';', 46, '!', '?', '"', '(', ')', '{', '}'};
 
-	while (s[i])
+	while (s[a])
 	{
-		if (s[i] == separator[i] || s[i] >= 97 && s[i] <= 122)
+		i = 0;
+
+		while (i < cspc)
 		{
-			s[i] = s[i] - 32;
+			if ((a == 0 || s[a - 1] == spc[i]) && (s[a] >= 97 && s[a] <= 122))
+				s[a] -= 32;
+
+			i++;
 		}
-		else if (s[i] >= 65 && s[i] <= 90)
-		{
-			s[i] = s[i] - 32;
-		}
-		i++;
+		a++;
 	}
 	return (s);
 }
