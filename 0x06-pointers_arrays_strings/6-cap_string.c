@@ -9,7 +9,6 @@
 char *cap_string(char *s)
 {
 	int i = 0;
-	int new_word = 1;
 	char separator[] = {32, '\t', '\n', 44, ';', 46,
 		'!', '?', '"', '(', ')', '{', '}'};
 
