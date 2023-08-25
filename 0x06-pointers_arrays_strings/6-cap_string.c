@@ -15,21 +15,13 @@ char *cap_string(char *s)
 
 	while (s[i])
 	{
-		if (s[i] == separator[i])
-			new_word = 1;
-
-		else if ((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z'))
+		if (s[i] == separator[i] || s[i] >= 97 && s[i] <= 122)
 		{
-			if (new_word)
-			{
-				if (s[i] >= 'a' && s[i] <= 'z')
-					s[i] -= 32;
-				new_word = 0;
-			}
+			s[i] = s[i] - 32;
 		}
-		else
+		else if (s[i] >= 65 && s[i] <= 90)
 		{
-			new_word = 0;
+			s[i] = s[i] - 32;
 		}
 		i++;
 	}
