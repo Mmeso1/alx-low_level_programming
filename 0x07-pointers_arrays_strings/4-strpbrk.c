@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * _strpbrk - 
- * @s:
- * @accept:
- * Return:
+ * _strpbrk - locates the first occurrence of a character from @accept in @s
+ * @s: the string to search in
+ * @accept: the set of characters to search for
+ * Return: pointer to the byte in @s that matches one of the bytes in @accept
  */
 
 char *_strpbrk(char *s, char *accept)
