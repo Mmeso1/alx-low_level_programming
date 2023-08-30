@@ -21,6 +21,6 @@ int find_sqrt(int n, int guess)
 int _sqrt_recursion(int n)
 {
 	if (n < 0)
-		retrun (-1);
+		return (-1);
 	return (find_sqrt(n, 0));
 }
