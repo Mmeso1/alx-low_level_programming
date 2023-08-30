@@ -14,7 +14,7 @@ int is_palindrome(char *s)
 
 	while (i < length / 2)
 	{
-		if (s[i] != s[strlen - 1 - i])
+		if (s[i] != s[length - 1 - i])
 		{
 			return (0);
 		}
