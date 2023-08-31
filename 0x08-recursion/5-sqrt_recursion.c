@@ -2,7 +2,9 @@
 
 /**
  * _sqrt_recursion - find the square root of a number
- * @n: the number
+ * find_sqrt - find square root
+ * @n: the numberi
+ * @n: the other no.
  * @guess: current guess for square root
  * Return: the square root
  */
