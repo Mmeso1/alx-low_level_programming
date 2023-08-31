@@ -1,9 +1,7 @@
 #include "main.h"
 
 /**
- * _sqrt_recursion - find the square root of a number
  * find_sqrt - find square root
- * @n: the numberi
  * @n: the other no.
  * @guess: current guess for square root
  * Return: the square root
@@ -19,6 +17,12 @@ int find_sqrt(int n, int guess)
 
 	return (find_sqrt(n, guess + 1));
 }
+
+/**
+ * _sqrt_recursion - find the square root of a number
+ * @n: the other no.
+ * Return: the square root
+ */
 
 int _sqrt_recursion(int n)
 {
