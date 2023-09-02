@@ -12,21 +12,23 @@
 int main(int argc, char *argv[])
 {
 	int sum = 0;
-	int i = 1;
+	int i = 1, num;
 
 	if (argc > 1)
 	{
 		while (i < argc)
 		{
-			if (atoi(argv[i]) >= 48 || atoi(argv[i]) >= 57)
+			num = atoi(argv[i]);
+
+			if (num >= 0) 
 			{
-				sum += atoi(argv[i]);
+				sum += num;
 				i++;
 			}
 			else
 			{
 				printf("Error\n");
-				return (0);
+				return (1);
 			}
 		}
 		printf("%d\n", sum);
