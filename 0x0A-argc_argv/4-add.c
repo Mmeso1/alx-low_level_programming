@@ -13,23 +13,22 @@ int main(int argc, char *argv[])
 {
 	int sum = 0;
 	int i = 1;
-	const char *num = argv[i];
+	long num;
+	char *endptr;
 
 	if (argc > 1)
 	{
 		while (i < argc)
 		{
+			num = strtol(argv[i], &endptr, 10);
 
-			if (num[i] >= 48 && num[i] <= 57)
-			{
-				sum += atoi(num);
-				i++;
-			}
-			else
+			if (*endptr != '\0' || num < 0)
 			{
 				printf("Error\n");
 				return (1);
 			}
+			sum += num;
+			i++;
 		}
 		printf("%d\n", sum);
 		return (0);
