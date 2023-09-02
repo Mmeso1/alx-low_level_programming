@@ -12,17 +12,17 @@
 int main(int argc, char *argv[])
 {
 	int sum = 0;
-	int i = 1, num;
+	int i = 1;
+	const char *num = argv[i];
 
 	if (argc > 1)
 	{
 		while (i < argc)
 		{
-			num = atoi(argv[i]);
 
-			if (num >= 0) 
+			if (num[i] >= 48 && num[i] <= 57)
 			{
-				sum += num;
+				sum += atoi(num);
 				i++;
 			}
 			else
