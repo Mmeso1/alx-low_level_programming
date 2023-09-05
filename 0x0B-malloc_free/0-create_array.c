@@ -7,6 +7,7 @@
  * and initializes it with a specific char
  * @size: size of buffer
  * @c: char for initialization
+ * Return: pointer to the array
  */
 
 char *create_array(unsigned int size, char c)
@@ -25,7 +26,7 @@ char *create_array(unsigned int size, char c)
 		{
 			array[i] = c;
 		}
-		array[size - 1] = '\0';
+		array[size] = '\0';
 	}
 	return (array);
 }
