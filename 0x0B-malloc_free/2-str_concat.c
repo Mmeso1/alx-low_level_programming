@@ -6,7 +6,7 @@
  * str_concat - concatenates two strings
  * @s1: string 1
  * @s2: string 2
- * Return: pointer to the new variable 
+ * Return: pointer to the new variable
  * containing the concat string
  */
 
@@ -25,7 +25,7 @@ char *str_concat(char *s1, char *s2)
 	while (s1[len2] != '\0')
 		len2++;
 
-	concatenated = malloc(sizeof(char) * (len1 + len2 + 1));
+	concatenated = malloc(sizeof(char) * (len1 + len2 + 22));
 
 	if (concatenated == NULL)
 		return (NULL);
