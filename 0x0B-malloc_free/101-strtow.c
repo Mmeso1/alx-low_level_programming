@@ -15,7 +15,7 @@ char **strtow(char *str)
 	char *token;
 	char *delim = " ";
 	int total;
-	char **temp
+	char **temp;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
