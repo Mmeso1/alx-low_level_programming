@@ -15,6 +15,7 @@ char **strtow(char *str)
 	char *token;
 	char *delim = " ";
 	int total;
+	char **temp
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
@@ -25,7 +26,7 @@ char **strtow(char *str)
 	{
 		num_words++;
 		total = num_words + 1;
-		char **temp = realloc(strarr, sizeof(char *) * (total));
+		temp = realloc(strarr, sizeof(char *) * (total));
 		if (temp == NULL)
 		{
 			free(strarr);
