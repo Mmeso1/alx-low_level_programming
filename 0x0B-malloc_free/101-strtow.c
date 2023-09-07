@@ -14,6 +14,7 @@ char **strtow(char *str)
 	char **strarr = NULL;
 	char *token;
 	char *delim = " ";
+	int total;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
@@ -23,13 +24,14 @@ char **strtow(char *str)
 	while (token)
 	{
 		num_words++;
-		char **temp = realloc(strarr, sizeof(char *) * (num_words + 1));
+		total = num_words + 1;
+		char **temp = realloc(strarr, sizeof(char *) * (total));
 		if (temp == NULL)
 		{
 			free(strarr);
 			return (NULL);
 		}
-		starr = temp;
+		strarr = temp;
 
 		strarr[num_words - 1] = strdup(token);
 		token = strtok(NULL, delim);
