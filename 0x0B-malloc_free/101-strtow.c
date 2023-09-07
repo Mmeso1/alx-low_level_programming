@@ -23,21 +23,22 @@ char **strtow(char *str)
 	while (token)
 	{
 		num_words++;
-		strarr = realloc(strarr, sizeof(char *) * (num_words + 1));
-		if (strarr == NULL)
+		char **temp = realloc(strarr, sizeof(char *) * (num_words + 1));
+		if (temp == NULL)
 		{
+			free(starr);
 			return (NULL);
 		}
+		starr = temp;
+
 		strarr[num_words - 1] = strdup(token);
 		token = strtok(NULL, delim);
 	}
-
 	if (num_words == 0)
 	{
 		free(strarr);
 		return (NULL);
 	}
-
 	strarr[num_words] = NULL;
 	return (strarr);
 }
