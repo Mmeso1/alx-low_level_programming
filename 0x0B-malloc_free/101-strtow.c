@@ -26,7 +26,7 @@ char **strtow(char *str)
 		char **temp = realloc(strarr, sizeof(char *) * (num_words + 1));
 		if (temp == NULL)
 		{
-			free(starr);
+			free(strarr);
 			return (NULL);
 		}
 		starr = temp;
