@@ -13,17 +13,19 @@
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int lens1 = strlen(s1);
-	unsigned int lens2 = strlen(s2);
-	char *result = malloc(lens1 + n + 1);
+	unsigned int lens1;
+	char *result;
 
 	if (s1 == NULL)
 		s1 = " ";
 	if (s2 == NULL)
 		s2 = " ";
 
-	if (n >= lens2)
-		n = len2;
+	if (n >= strlen(s2))
+		n = strlen(s2);
+
+	lens1 = strlen(s1);
+	result = malloc(lens1 + n + 1);
 
 	if (result == NULL)
 		return (NULL);
