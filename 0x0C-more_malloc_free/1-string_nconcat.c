@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -13,7 +12,7 @@
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int lens1;
+	unsigned int lens1, i, j;
 	char *result;
 
 	if (s1 == NULL)
@@ -30,8 +29,16 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (result == NULL)
 		return (NULL);
 
-	strncpy(result, s1);
-	strncat(result, s2, n);
+	for (i = 0; s1[i] != '\0'; i++)
+	{
+		result[i] = s1[i];
+	}
 
+	for (j = 0; j < n && s2[j] != '\0'; j++)
+	{
+		result[i + j] = s2[j];
+	}
+
+	result[i + j] = '\0';
 	return (result);
 }
