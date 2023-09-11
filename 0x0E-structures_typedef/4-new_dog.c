@@ -4,7 +4,7 @@
 
 /**
  * new_dog - creates a new dog
- * @name:value of dog's name
+ * @name: value of dog's name
  * @age: value of dog's age
  * @owner: value of dog's owner
  * Return: the new struct
