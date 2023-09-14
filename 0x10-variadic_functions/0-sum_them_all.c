@@ -2,16 +2,16 @@
 #include <stdarg.h>
 
 /**
- * sum_them_all - sum the different argument
- * passed into the function
- * @n: the args
+ * sum_them_all - sum all the args
+ * @n: the number of args
+ * Return: sum
  */
 
 int sum_them_all(const unsigned int n, ...)
 {
-	vargs args;
+	va_list args;
 	int sum = 0;
-	int i;
+	unsigned int i;
 
 	if (n == 0)
 		return (0);
