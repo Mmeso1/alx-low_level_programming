@@ -1,4 +1,6 @@
 #include "3-calc.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
  * main - the entry point
@@ -7,7 +9,7 @@
  * Return:
  */
 
-int main (argc, *argv [])
+int main (int argc, char *argv [])
 {
 	int (*operation)(int, int);
 	int result;
@@ -22,10 +24,10 @@ int main (argc, *argv [])
 	if (!operation)
 	{
 		printf("Error\n");
-		Return(99);
+		exit(99);
 	}
 
-	result = (atoi(argv[1]), atoi(argv[3]));
+	result = operation(atoi(argv[1]), atoi(argv[3]));
 	printf("%d\n", result);
 
 	return (0);
