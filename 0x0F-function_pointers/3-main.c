@@ -4,12 +4,12 @@
 
 /**
  * main - the entry point
- * @argc:
- * @argv:
- * Return:
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: result of the operation
  */
 
-int main (int argc, char *argv [])
+int main(int argc, char *argv[])
 {
 	int (*operation)(int, int);
 	int result;

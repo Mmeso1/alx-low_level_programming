@@ -28,9 +28,9 @@ int op_sub(int a, int b)
 
 /**
  * op_mul - multiply operation
- * @a:
- * @b:
- * Return:
+ * @a: var a
+ * @b: var b
+ * Return: product
  */
 int op_mul(int a, int b)
 {
@@ -39,9 +39,9 @@ int op_mul(int a, int b)
 
 /**
  * op_div - divide operation
- * @a:
- * @b:
- * Return:
+ * @a: var a
+ * @b: var b
+ * Return: dividend
  */
 int op_div(int a, int b)
 {
@@ -55,9 +55,9 @@ int op_div(int a, int b)
 
 /**
  * op_mod - modulus operation
- * @a:
- * @b:
- * Return:
+ * @a: var a
+ * @b: var b
+ * Return: remainder
  */
 int op_mod(int a, int b)
 {
