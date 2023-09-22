@@ -1,17 +1,17 @@
 section .data
-    hello_message db "Hello, Holberton",10,0  ; The string to be printed
+    hello_message db "Hello, Holberton",10,0
 
 section .text
     global main
 
-    extern printf  ; Declare printf as an external function
+    extern printf
 
 main:
-   push rbp       ; Save the base pointer
-   mov rdi, hello_message  ; Set the format string address
-   call printf   ; Call printf to print the message
-   pop rbp        ; Restore the base pointer
+   push rbp
+   mov rdi, hello_message
+   call printf
+   pop rbp
 
-   mov rax, 60   ; syscall number for exit
-   xor rdi, rdi  ; status = 0
+   mov rax, 60
+   xor rdi, rdi
    syscall
