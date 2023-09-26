@@ -1,6 +1,4 @@
 #include "lists.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
  * print_listint_safe - prints a listint_t linked list
@@ -18,7 +16,7 @@ size_t print_listint_safe(const listint_t *head)
 		count++;
 		current = head->next;
 
-		if (current >= head)
+		if (current != head)
 		{
 			printf("-> [%p] %d\n", (void *)current, current->n);
 			break;
