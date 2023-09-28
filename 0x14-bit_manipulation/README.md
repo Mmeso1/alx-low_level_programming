@@ -1,2 +1,3 @@
 My Readme for bit manipulation task
-# ptg stands for Push To Github. \n ## It is a script that contins commands to push to git gub at a go
+# ptg stands for Push To Github.
+## : It is a script that contains commands to push to github at a go
