@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Check if there are at least two arguments (git commit messages)
+if [ $# -lt 2 ]; then
+    echo "Usage: $0 message1 message2 ..."
+    exit 1
+fi
+
+# Add all changes
+git add .
+
+# Iterate through each argument and commit
+for message in "${@:1}"; do
+    git commit -m "$message"
+done
+
+# Push the commits
+git push
+
