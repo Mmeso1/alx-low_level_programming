@@ -11,7 +11,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	FILE *file_pointer;
 	char buffer[1024];
 	size_t read_bytes;
-	ssize_t count = 0;
+	size_t count = 0;
 
 	if (!filename)
 		return (0);
@@ -21,15 +21,15 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (!file_pointer)
 		return (0);
 
-	while (letters > 0 &&
-			 (read_bytes = fread(buffer, 1, sizeof(buffer), file_pointer)) > 0)
+	while (count < letters && !feof(file_pointer))
 	{
-		if (read_bytes > letters)
-			read_bytes = letters;
+		read_bytes = fread(buffer, 1, sizeof(buffer), file_pointer);
+
+		if (read_bytes > letters - count)
+			read_bytes = letters - count;
 
 		fwrite(buffer, 1, read_bytes, stdout);
 		count += read_bytes;
-		letters -= read_bytes;
 	}
 	fclose(file_pointer);
 	return (count);
