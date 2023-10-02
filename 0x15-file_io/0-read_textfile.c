@@ -20,7 +20,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (!file_pointer)
 		return (0);
 
-	while (!feof(file_pointer))
+	while (count < letters && !feof(file_pointer))
 	{
 		read_bytes = fread(buffer, 1, letters, file_pointer);
 
