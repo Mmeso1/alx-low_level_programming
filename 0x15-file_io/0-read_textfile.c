@@ -8,29 +8,33 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *file_pointer;
+	int filde;
 	char buffer[1024];
-	size_t read_bytes;
+	ssize_t read_bytes, written_bytes;
 	size_t count = 0;
 
 	if (!filename)
 		return (0);
-
-
-	file_pointer = fopen(filename, "r");
-	if (!file_pointer)
+	filde = open(filename, O_RDONLY);
+	if (!filde)
 		return (0);
 
-	while (count < letters && !feof(file_pointer))
+	while (count < letters)
 	{
-		read_bytes = fread(buffer, 1, sizeof(buffer), file_pointer);
+		read_bytes = read(filde, buffer, sizeof(buffer));
 
-		if (read_bytes > letters - count)
+		if (read_bytes <= 0)
+			break;
+
+		if (count + read_bytes > letters)
 			read_bytes = letters - count;
 
-		fwrite(buffer, 1, read_bytes, stdout);
+		written_bytes = write(STDOUT_FILENO, buffer, read_bytes);
+
+		if (written_bytes <= 0 || written_bytes != read_bytes)
+			break;
 		count += read_bytes;
 	}
-	fclose(file_pointer);
+	close(filde);
 	return (count);
 }
