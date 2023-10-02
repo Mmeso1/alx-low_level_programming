@@ -16,19 +16,20 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (!filename)
 		return (0);
 
+
 	file_pointer = fopen(filename, "r");
 	if (!file_pointer)
 		return (0);
 
-	while (count < letters && !feof(file_pointer))
+	while (letters > 0 &&
+			(read_bytes = fread(buffer, 1, sizeof(buffer), file_pointer)) > 0)
 	{
-		read_bytes = fread(buffer, 1, letters, file_pointer);
+		if (read_bytes > letters)
+			read_bytes = letters;
 
-		if (read_bytes == 0)
-			break;
-		buffer[read_bytes] = '\0';
+		fwrite(buffer, 1, read_bytes, stdout);
 		count += read_bytes;
-		printf("%s", buffer);
+		letters -= read_bytes;
 	}
 	fclose(file_pointer);
 	return (count);
