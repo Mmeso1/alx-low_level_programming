@@ -21,8 +21,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (!file_pointer)
 		return (0);
 
-	read_bytes = fread(buffer, 1, sizeof(buffer), file_pointer);
-	while (letters > 0 && read_bytes > 0)
+	while (letters > 0 &&
+			 (read_bytes = fread(buffer, 1, sizeof(buffer), file_pointer)) > 0)
 	{
 		if (read_bytes > letters)
 			read_bytes = letters;
