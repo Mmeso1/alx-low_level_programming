@@ -2,16 +2,16 @@
 /**
  * handle_error - to exit with error and status
  * @exit_code: ...
- * @message: ...
+ * @error_msg: ...
  * @file_name: ....
  * Return: nothing
  */
-void handle_error(int exit_code, const char *error_message, const char *file_name)
+void handle_error(int exit_code, const char *error_msg, const char *file_name)
 {
 	if (file_name == NULL || file_name[0] == '\0')
-		dprintf(STDERR_FILENO, "Error: %s\n", error_message);
+		dprintf(STDERR_FILENO, "Error: %s\n", error_msg);
 	else
-		dprintf(STDERR_FILENO, "Error: %s %s\n", error_message, file_name);
+		dprintf(STDERR_FILENO, "Error: %s %s\n", error_msg, file_name);
 	exit(exit_code);
 }
 
