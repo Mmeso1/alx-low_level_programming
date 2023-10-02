@@ -1,15 +1,60 @@
 #include "main.h"
 /**
- * exit_with_error - to exit with error and status
+ * handle_error - to exit with error and status
  * @exit_code: ...
  * @message: ...
  * @file_name: ....
  * Return: nothing
  */
-void exit_with_error(int exit_code, const char *message, const char *file_name)
+void handle_error(int exit_code, const char *error_message, const char *file_name)
 {
-	dprintf(STDERR_FILENO, "Error: %s %s\n", message, file_name);
+	if (file_name == NULL || file_name[0] == '\0')
+		dprintf(STDERR_FILENO, "Error: %s\n", error_message);
+	else
+		dprintf(STDERR_FILENO, "Error: %s %s\n", error_message, file_name);
 	exit(exit_code);
+}
+
+/**
+ * copy_file - .....
+ * @source_file: .....
+ * @destination_file: ....
+ */
+void copy_file(const char *source_file, const char *destination_file)
+{
+	int fd_source, fd_dest;
+	ssize_t bytes_read, bytes_written;
+	char buffer[BUFFER_SIZE];
+
+	fd_source = open(source_file, O_RDONLY);
+	if (fd_source == -1)
+		handle_error(EXIT_READ_ERROR, "Can't read from file", source_file);
+
+	fd_dest = open(destination_file, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	if (fd_dest == -1)
+	{
+		close(fd_source);
+		handle_error(EXIT_WRITE_ERROR, "Can't write to file", destination_file);
+	}
+
+	while ((bytes_read = read(fd_source, buffer, BUFFER_SIZE)) > 0)
+	{
+		bytes_written = write(fd_dest, buffer, bytes_read);
+		if (bytes_written != bytes_read)
+		{
+			close(fd_source);
+			close(fd_dest);
+			handle_error(EXIT_WRITE_ERROR, "Can't write to file", destination_file);
+		}
+	}
+	if (bytes_read == -1)
+	{
+		close(fd_source);
+		close(fd_dest);
+		handle_error(EXIT_READ_ERROR, "Can't read from file", source_file);
+	}
+	if (close(fd_source) == -1 || close(fd_dest) == -1)
+		handle_error(EXIT_CLOSE_ERROR, "Can't close fd", "");
 }
 
 /**
@@ -20,49 +65,13 @@ void exit_with_error(int exit_code, const char *message, const char *file_name)
  */
 int main(int argc, char *argv[])
 {
-	const char *file_from = argv[1];
-	const char *file_to = argv[2];
-	int fd_from, fd_to;
-	ssize_t bytes_read, bytes_written;
-	char buffer[BUFFER_SIZE];
+	const char *source_file = argv[1];
+	const char *destination_file = argv[2];
 
 	if (argc != 3)
 	{
-		exit_with_error(97, "Usage: cp file_from file_to", "");
+		handle_error(EXIT_USAGE, "Usage: cp file_from file_to", "");
 	}
-	fd_from = open(file_from, O_RDONLY);
-	if (fd_from == -1)
-	{
-		exit_with_error(98, "Can't read from file", file_from);
-	}
-
-	fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	if (fd_to == -1)
-	{
-		close(fd_from);
-		exit_with_error(99, "Can't write to file", file_to);
-	}
-
-	while ((bytes_read = read(fd_from, buffer, BUFFER_SIZE)) > 0)
-	{
-		bytes_written = write(fd_to, buffer, bytes_read);
-		if (bytes_written != bytes_read)
-		{
-			close(fd_from);
-			close(fd_to);
-			exit_with_error(99, "Can't write to file", file_to);
-		}
-	}
-	if (bytes_read == -1)
-	{
-		close(fd_from);
-		close(fd_to);
-		exit_with_error(98, "Can't read from file", file_from);
-	}
-
-	if (close(fd_from) == -1 || close(fd_to) == -1)
-	{
-		exit_with_error(100, "Can't close fd", "");
-	}
-	return 0;
+	copy_file(source_file, destination_file);
+	return (0);
 }
