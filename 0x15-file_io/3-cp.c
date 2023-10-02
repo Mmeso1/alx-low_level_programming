@@ -30,8 +30,7 @@ void copy_file(const char *source_file, const char *destination_file)
 	if (fd_source == -1)
 		handle_error(EXIT_READ_ERROR, "Can't read from file", source_file);
 
-	fd_dest = open(destination_file, O_WRONLY | O_CREAT | O_TRUNC,
-			S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+	fd_dest = open(destination_file, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_dest == -1)
 	{
 		close(fd_source);
