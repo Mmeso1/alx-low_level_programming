@@ -56,13 +56,15 @@ void display_elf_header(int fd)
  */
 int main(int argc, char **argv)
 {
-	int fd = open(argv[1], O_RDONLY);
+	int fd;
 	
 	if (argc != 2)
 	{
 		fprintf(stderr, "Usage: %s elf_filename\n", argv[0]);
 		return (98);
 	}
+
+	fd = open(argv[1], O_RDONLY);
 
 	if (fd == -1)
 	{
@@ -78,5 +80,6 @@ int main(int argc, char **argv)
 		return (98);
 	}
 	display_elf_header(fd);
+	close(fd);
 	return (0);
 }
