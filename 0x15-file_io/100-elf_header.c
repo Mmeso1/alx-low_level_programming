@@ -27,7 +27,9 @@ int is_elf_file(int fd)
 void display_elf_header(int fd)
 {
 	Elf64_Ehdr elf_header;
-	if (read(fd, &elf_header, sizeof(elf_header)) != sizeof(elf_header))
+
+	if (read(fd, &elf_header, sizeof(elf_header))
+			!= sizeof(elf_header))
 	{
 		perror("read");
 		exit(98);
@@ -37,7 +39,8 @@ void display_elf_header(int fd)
 			elf_header.e_ident[1], elf_header.e_ident[2], elf_header.e_ident[3]);
 	printf("  Class:                             ELF%d\n",
 			elf_header.e_ident[EI_CLASS] == ELFCLASS32 ? 32 : 64);
-	printf("  Data                              2's complement, %s endian\n", elf_header.e_ident[EI_DATA] == ELFDATA2LSB ? "little" : "big");
+	printf("  Data                              2's complement, %s endian\n",
+			elf_header.e_ident[EI_DATA] == ELFDATA2LSB ? "little" : "big");
 	printf("  OS/ABI:                            UNIX - %s\n",
 			elf_header.e_ident[EI_OSABI] == ELFOSABI_SYSV ? "System V" : "Other");
 	printf("  ABI Version:                       %d\n",
@@ -54,10 +57,10 @@ void display_elf_header(int fd)
  * @argv: the arg vector
  * Return: 0 on success
  */
-int main(int argc, char **argv)
+int main(int argc, char **arg)
 {
 	int fd;
-	
+
 	if (argc != 2)
 	{
 		fprintf(stderr, "Usage: %s elf_filename\n", argv[0]);
