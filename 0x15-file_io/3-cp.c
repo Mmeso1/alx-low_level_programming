@@ -10,8 +10,6 @@ void handle_error(int exit_code, const char *error_msg, const char *file_name)
 {
 	if (file_name == NULL || file_name[0] == '\0')
 		dprintf(STDERR_FILENO, "Error: %s\n", error_msg);
-	else if (strncmp(error_msg, "Usage:", 6) == 0)
-		dprintf(STDERR_FILENO, "%s\n", error_msg);
 	else
 		dprintf(STDERR_FILENO, "Error: %s %s\n", error_msg, file_name);
 	exit(exit_code);
@@ -72,7 +70,8 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		handle_error(EXIT_USAGE, "Usage: cp file_from file_to", "");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(EXIT_USAGE);
 	}
 	copy_file(source_file, destination_file);
 	return (0);
