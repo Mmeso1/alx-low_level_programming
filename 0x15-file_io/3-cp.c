@@ -28,13 +28,13 @@ void copy_file(const char *source_file, const char *destination_file)
 
 	fd_source = open(source_file, O_RDONLY);
 	if (fd_source == -1)
-		handle_error(EXIT_READ_ERROR, "Can't read from file", source_file);
+		handle_error(EXIT_READ_ERROR, "Can't read from", source_file);
 
 	fd_dest = open(destination_file, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_dest == -1)
 	{
 		close(fd_source);
-		handle_error(EXIT_WRITE_ERROR, "Can't write to file", destination_file);
+		handle_error(EXIT_WRITE_ERROR, "Can't write to", destination_file);
 	}
 
 	while ((bytes_read = read(fd_source, buffer, BUFFER_SIZE)) > 0)
