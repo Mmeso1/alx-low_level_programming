@@ -10,6 +10,8 @@ void handle_error(int exit_code, const char *error_msg, const char *file_name)
 {
 	if (file_name == NULL || file_name[0] == '\0')
 		dprintf(STDERR_FILENO, "Error: %s\n", error_msg);
+	else if (strncmp(error_msg, "Usage:", 6) == 0)
+		dprintf(STDERR_FILENO, "%s\n", error_msg);
 	else
 		dprintf(STDERR_FILENO, "Error: %s %s\n", error_msg, file_name);
 	exit(exit_code);
@@ -44,14 +46,14 @@ void copy_file(const char *source_file, const char *destination_file)
 		{
 			close(fd_source);
 			close(fd_dest);
-			handle_error(EXIT_WRITE_ERROR, "Can't write to file", destination_file);
+			handle_error(EXIT_WRITE_ERROR, "Can't write to", destination_file);
 		}
 	}
 	if (bytes_read == -1)
 	{
 		close(fd_source);
 		close(fd_dest);
-		handle_error(EXIT_READ_ERROR, "Can't read from file", source_file);
+		handle_error(EXIT_READ_ERROR, "Can't read from", source_file);
 	}
 	if (close(fd_source) == -1 || close(fd_dest) == -1)
 		handle_error(EXIT_CLOSE_ERROR, "Can't close fd", "");
