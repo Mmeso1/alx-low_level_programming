@@ -57,7 +57,7 @@ void display_elf_header(int fd)
  * @argv: the arg vector
  * Return: 0 on success
  */
-int main(int argc, char **arg)
+int main(int argc, char **argv)
 {
 	int fd;
 
