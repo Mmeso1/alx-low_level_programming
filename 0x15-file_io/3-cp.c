@@ -9,9 +9,9 @@
 void handle_error(int exit_code, const char *error_msg, const char *file_name)
 {
 	if (file_name == NULL || file_name[0] == '\0')
-		dprintf(STDERR_FILENO, "Error: %s\n", error_msg);
+		dprintf(STDERR_FILENO, "%s\n", error_msg);
 	else
-		dprintf(STDERR_FILENO, "Error: %s %s\n", error_msg, file_name);
+		dprintf(STDERR_FILENO, "%s %s\n", error_msg, file_name);
 	exit(exit_code);
 }
 
