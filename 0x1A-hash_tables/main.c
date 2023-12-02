@@ -10,13 +10,9 @@
  */
 int main(void)
 {
-    char *s;
+	hash_table_t *ht;
 
-    s = "cisfun";
-    printf("%lu\n", hash_djb2((unsigned char *)s));
-    s = "Don't forget to tweet today";
-    printf("%lu\n", hash_djb2((unsigned char *)s));
-    s = "Mmeso is very very awesome, ha ha ha yes oo, manifesting good things";
-    printf("%lu\n", hash_djb2((unsigned char *)s));
-    return (EXIT_SUCCESS);
+	ht = hash_table_create(1024);
+	hash_table_set(ht, "betty", "cool");
+	return (EXIT_SUCCESS);
 }
