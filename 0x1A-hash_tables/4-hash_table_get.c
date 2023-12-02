@@ -13,7 +13,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	hash_node_t *current;
 
 	if (ht == NULL || key == NULL || *key == '\0')
-		return NULL;
+		return (NULL);
 
 	index = key_index((unsigned char *)key, ht->size);
 	current = ht->array[index];
@@ -21,7 +21,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	while (current != NULL)
 	{
 		if (strcmp(current->key, key) == 0)
-			return current->value;
+			return (current->value);
 		current = current->next;
 	}
 
